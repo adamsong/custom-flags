@@ -4,7 +4,7 @@
     "name": "Custom Flags",
     "description": "Adds custom flags",
     "source": "https://github.com/adamsong/custom-flags",
-    "version": "0.0.1",
+    "version": "1.0",
     "dependencies": [],
     "ksp2_version": {
         "min": "...",
