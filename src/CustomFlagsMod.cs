@@ -25,16 +25,13 @@ namespace CustomFlags
 	public class CustomFlagsMod : Mod
 	{
 		public static readonly Dictionary<string, FlagResource> Flags = new Dictionary<string, FlagResource>();
-		public static BaseModLogger FlagLogger;
 		
 		private AgencyFlagsData _agencyFlagsData; 
 		public override void Initialize()
 		{
-			FlagLogger = Logger;
 			var foundAssets = Resources.FindObjectsOfTypeAll<AgencyFlagsData>();
 			_agencyFlagsData = foundAssets[0];
 			var dirInfo = new DirectoryInfo("flags");
-			_agencyFlagsData.Flags.ForEach(flag => Logger.Info(flag.FlagIcon.name));
 			Logger.Info($"Loading {dirInfo.GetFiles("*.png").Length} new flags.");
 			var locationData = new List<ResourceLocationData>();
 			foreach (var file in dirInfo.GetFiles("*.png"))
@@ -52,7 +49,7 @@ namespace CustomFlags
 					PrimaryColor = Color.black,
 					SecondaryColor = Color.black
 				};
-				Logger.Info(newFlag.FlagIcon.name);
+				Logger.Info($"Loaded new flag {file.Name}");
 				_agencyFlagsData.Flags.Add(newFlag);
 				Flags.Add(sprite.name, new FlagResource
 				{
@@ -70,7 +67,6 @@ namespace CustomFlags
 	{
 		public override void Provide(ProvideHandle provideHandle)
 		{
-			CustomFlagsMod.FlagLogger.Info($"PROVIDING RESOURCE ID {provideHandle.Location.PrimaryKey} {provideHandle.Location.ResourceType.ToString()}");
 			if (!CustomFlagsMod.Flags.ContainsKey(provideHandle.Location.PrimaryKey))
 			{
 				provideHandle.Complete<Sprite>(null, false,
