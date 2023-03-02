@@ -1,73 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{F9A01E83-FA9A-4921-BF31-DB0770A8EA54}</ProjectGuid>
-        <OutputType>Library</OutputType>
-        <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>CustomFlags</RootNamespace>
-        <AssemblyName>CustomFlags</AssemblyName>
-        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-        <FileAlignment>512</FileAlignment>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <PlatformTarget>AnyCPU</PlatformTarget>
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
-        <Optimize>false</Optimize>
-        <OutputPath>bin\Debug\</OutputPath>
-        <DefineConstants>DEBUG;TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <PlatformTarget>AnyCPU</PlatformTarget>
-        <DebugType>pdbonly</DebugType>
-        <Optimize>true</Optimize>
-        <OutputPath>bin\Release\</OutputPath>
-        <DefineConstants>TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
+        <TargetFramework>net472</TargetFramework>
+        <LangVersion>11</LangVersion>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\external_dlls\Assembly-CSharp.dll</HintPath>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>external_dlls\Assembly-CSharp.dll</HintPath>
+            <Private>false</Private>
         </Reference>
-        <Reference Include="System" />
-        <Reference Include="System.Core" />
-        <Reference Include="System.Data" />
-        <Reference Include="System.Xml" />
-        <Reference Include="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\external_dlls\Unity.Addressables.dll</HintPath>
+        <Reference Include="Unity.Addressables">
+            <HintPath>external_dlls\Unity.Addressables.dll</HintPath>
+            <Private>false</Private>
         </Reference>
-        <Reference Include="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\external_dlls\Unity.ResourceManager.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.CoreModule">
-          <HintPath>..\external_dlls\UnityEngine.CoreModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.ImageConversionModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\external_dlls\UnityEngine.ImageConversionModule.dll</HintPath>
+        <Reference Include="Unity.ResourceManager">
+            <HintPath>external_dlls\Unity.ResourceManager.dll</HintPath>
+            <Private>false</Private>
         </Reference>
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\SpaceWarp\SpaceWarp.csproj">
-        <Project>{42fa2f7b-a595-44e8-8cd5-a9c30b80a667}</Project>
-        <Name>SpaceWarp</Name>
-      </ProjectReference>
+        <ProjectReference Include="E:\Programming\KSP2\SpaceWarp\SpaceWarp\SpaceWarp.csproj" Private="false" />
     </ItemGroup>
     <ItemGroup>
-      <Compile Include="CustomFlagsMod.cs" />
+        <PackageReference Include="UnityEngine.Modules" Version="2020.3.33" />
     </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
-    </Target>
-    <Target Name="AfterBuild">
-    </Target>
-    -->
-
 </Project>

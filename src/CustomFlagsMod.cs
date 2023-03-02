@@ -1,15 +1,14 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
-using I2.Loc;
+using BepInEx;
 using KSP.Game;
-using SpaceWarp.API.Logging;
+using KSP.Modding;
+using SpaceWarp;
 using SpaceWarp.API.Mods;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.Exceptions;
-using UnityEngine.ResourceManagement.ResourceLocations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
 namespace CustomFlags
@@ -21,22 +20,23 @@ namespace CustomFlags
 		public Sprite Sprite;
 	}
 	
-	[MainMod]
-	public class CustomFlagsMod : Mod
+	[BepInPlugin("us.adamsogm.CustomFlags", "CustomFlags", "2.0.0")]
+	[BepInDependency(SpaceWarpPlugin.ModGuid, SpaceWarpPlugin.ModVer)]
+	public class CustomFlagsMod : BaseSpaceWarpPlugin
 	{
 		public static readonly Dictionary<string, FlagResource> Flags = new Dictionary<string, FlagResource>();
 		
 		private AgencyFlagsData _agencyFlagsData; 
-		public override void Initialize()
+		public override void OnInitialized()
 		{
 			var foundAssets = Resources.FindObjectsOfTypeAll<AgencyFlagsData>();
 			_agencyFlagsData = foundAssets[0];
 			var dirInfo = new DirectoryInfo("flags");
-			Logger.Info($"Loading {dirInfo.GetFiles("*.png").Length} new flags.");
+			Logger.LogInfo($"Loading {dirInfo.GetFiles("*.png").Length} new flags.");
 			var locationData = new List<ResourceLocationData>();
 			foreach (var file in dirInfo.GetFiles("*.png"))
 			{
-				var bytes = System.IO.File.ReadAllBytes(file.FullName);
+				var bytes = File.ReadAllBytes(file.FullName);
 				var texture = new Texture2D(512, 320, TextureFormat.RGB24, false);
 				texture.LoadImage(bytes);
 				var sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
@@ -49,7 +49,7 @@ namespace CustomFlags
 					PrimaryColor = Color.black,
 					SecondaryColor = Color.black
 				};
-				Logger.Info($"Loaded new flag {file.Name}");
+				Logger.LogInfo($"Loaded new flag {file.Name}");
 				_agencyFlagsData.Flags.Add(newFlag);
 				Flags.Add(sprite.name, new FlagResource
 				{
