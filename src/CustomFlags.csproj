@@ -8,6 +8,13 @@
         <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
     </PropertyGroup>
     <ItemGroup>
+		<PackageReference Include="BepInEx.BaseLib" Version="5.4.21" Publicize="true" />
+		<Reference Include="external_dlls\SpaceWarp.dll" />
+		<Reference Include="external_dlls\UnityEngine.dll" />
+		<Reference Include="external_dlls\UnityEngine.CoreModule.dll" />
+		<Reference Include="external_dlls\Assembly-CSharp.dll" />
+		<Reference Include="external_dlls\NewtonSoft.Json.dll" />
+		<Reference Include="external_dlls\NewtonSoft.Json.dll" />
         <Reference Include="Assembly-CSharp">
             <HintPath>external_dlls\Assembly-CSharp.dll</HintPath>
             <Private>false</Private>
@@ -22,7 +29,6 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="E:\Programming\KSP2\SpaceWarp\SpaceWarp\SpaceWarp.csproj" Private="false" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="UnityEngine.Modules" Version="2020.3.33" />

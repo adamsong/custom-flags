@@ -4,10 +4,10 @@
     "name": "Custom Flags",
     "description": "Adds custom flags",
     "source": "https://github.com/adamsong/custom-flags",
-    "version": "1.0",
+    "version": "2.1",
     "dependencies": [],
     "ksp2_version": {
-        "min": "...",
-        "max": "*"
+        "min": "0.1.0",
+        "max": "0.1.0"
     }
 }
