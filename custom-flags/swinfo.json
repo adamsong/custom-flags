@@ -4,10 +4,19 @@
     "name": "Custom Flags",
     "description": "Adds custom flags",
     "source": "https://github.com/adamsong/custom-flags",
-    "version": "3.0.0",
-    "dependencies": [],
+    "version_check": "https://raw.githubusercontent.com/adamsong/custom-flags/master/custom-flags/swinfo.json",
+    "version": "3.0.1",
+    "dependencies": [
+        {
+            "id": "SpaceWarp",
+            "version": {
+                "min": "1.2.0",
+                "max": "*"
+            }
+        }
+    ],
     "ksp2_version": {
-        "min": "0.1.0",
-        "max": "0.1.0"
+        "min": "0.1.2.0",
+        "max": "*"
     }
 }

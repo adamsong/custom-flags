@@ -1,12 +1,9 @@
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using BepInEx;
 using KSP.Game;
-using KSP.Modding;
 using SpaceWarp;
 using SpaceWarp.API.Mods;
-using UniLinq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
@@ -22,14 +19,12 @@ namespace CustomFlags
 		public Sprite Sprite;
 	}
 	
-	
-	
 	[BepInPlugin(ModGuid, ModName, ModVer)]
 	[BepInDependency(SpaceWarpPlugin.ModGuid, SpaceWarpPlugin.ModVer)]
 	public class CustomFlagsMod : BaseSpaceWarpPlugin
 	{
 		public const string ModGuid = "us.adamsogm.CustomFlags";
-		public const string ModVer = "3.0.0";
+		public const string ModVer = "3.0.1";
 		public const string ModName = "CustomFlags";
 		public static string Path { get; private set; }
 
