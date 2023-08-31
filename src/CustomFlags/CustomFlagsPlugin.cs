@@ -39,13 +39,12 @@ public class CustomFlagsPlugin : BaseSpaceWarpPlugin
 	/// </summary>
 	public override void OnInitialized()
 	{
-		Logger.LogError("In OnInitialized");
 		base.OnInitialized();
 
 		_agencyFlagsData = Resources.FindObjectsOfTypeAll<AgencyFlagsData>()[0];
 		
 		var dirInfo = new DirectoryInfo("flags");
-		Logger.LogError($"Loading {dirInfo.GetFiles("*.png").Length} new flags.");
+		Logger.LogInfo($"Loading {dirInfo.GetFiles("*.png").Length} new flags.");
 		foreach (var fileInfo in dirInfo.GetFiles("*.png"))
 		{
 			Logger.LogInfo($"Loading flag from {fileInfo.FullName}");

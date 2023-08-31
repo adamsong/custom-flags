@@ -5,7 +5,7 @@
   "name": "Custom Flags",
   "description": "Custom flags for KSP2",
   "source": "https://github.com/adamsong/custom-flags",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "version_check": "https://raw.githubusercontent.com/adamsong/custom-flags/master/plugin_template/swinfo.json",
   "ksp2_version": {
     "min": "0.1.4",
