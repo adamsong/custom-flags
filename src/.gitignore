@@ -1,4 +1,0 @@
-bin/
-external_dlls/*.dll
-obj/
-*.sln

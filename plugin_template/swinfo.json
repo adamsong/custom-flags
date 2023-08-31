@@ -1,0 +1,23 @@
+{
+  "spec": "1.3",
+  "mod_id": "us.adamsogm.CustomFlags",
+  "author": "adamsogm",
+  "name": "Custom Flags",
+  "description": "Custom flags for KSP2",
+  "source": "https://github.com/adamsong/custom-flags",
+  "version": "3.1.0",
+  "version_check": "",
+  "ksp2_version": {
+    "min": "0.1.4",
+    "max": "*"
+  },
+  "dependencies": [
+    {
+      "id": "com.github.x606.spacewarp",
+      "version": {
+        "min": "1.4.0",
+        "max": "*"
+      }
+    }
+  ]
+}
