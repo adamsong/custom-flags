@@ -6,9 +6,3 @@ Allows adding custom flags to Kerbal Space Program 2
 1. Download either the latest release from this repo, or SpaceDock
 1. Unzip the downloaded file into the BepInEx plugins folder
 1. Place png files into `<KSP 2 Install Directory>/flags` and they will appear in game.
-
-## Building from source
-1. Download the repo
-1. Open the solution
-1. Drag game assembly into the `external_dlls/` folder
-1. Build the project
