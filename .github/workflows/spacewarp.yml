@@ -2,8 +2,6 @@ name: Space Warp Version Checker
 
 on:
   push:
-    branches:
-      - master
 
 jobs:
   verify:
