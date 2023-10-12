@@ -52,7 +52,7 @@ public class CustomFlagsPlugin : BaseSpaceWarpPlugin
 		}
 		
 		GameManager.Instance.Assets.LoadByLabel("custom_flag",
-			sprite => LoadCustomFlag(sprite, false), delegate(IList<Sprite> _)
+			sprite => LoadCustomFlag(sprite, true), delegate(IList<Sprite> _)
 			{});
 
 		Instance = this;
@@ -75,7 +75,7 @@ public class CustomFlagsPlugin : BaseSpaceWarpPlugin
 
 	public void LoadCustomFlag(Sprite sprite, bool addAddress = true)
 	{
-		if (Flags.ContainsKey(sprite.name))
+		if (_agencyFlagsData.Flags.Exists(f => f.FlagName == sprite.name))
 		{
 			Logger.LogError($"Flag sprites with duplicate names: {sprite.name}. Only one will load.");
 			return;
